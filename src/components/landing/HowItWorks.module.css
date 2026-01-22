@@ -1,0 +1,104 @@
+/* How It Works Section Styles - Requirements 12.2, 12.4 */
+
+.howItWorks {
+  padding: var(--spacing-xl) 0;
+  background: #16213E;
+  position: relative;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: var(--color-light);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0;
+  animation: fadeInUp 0.8s var(--transition-bounce) forwards;
+}
+
+.stepsContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-md);
+  align-items: start;
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  min-width: 120px;
+}
+
+.stepContent {
+  padding-top: 0.5rem;
+}
+
+.stepTitle {
+  color: var(--color-light);
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stepDescription {
+  color: rgba(248, 249, 250, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.stepConnector {
+  position: absolute;
+  left: 60px;
+  top: 100%;
+  width: 2px;
+  height: var(--spacing-lg);
+  background: linear-gradient(180deg, 
+    rgba(255, 107, 157, 0.5) 0%, 
+    rgba(255, 107, 157, 0.1) 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .howItWorks {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .stepsContainer {
+    gap: var(--spacing-md);
+  }
+  
+  .step {
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .stepNumber {
+    font-size: 2.5rem;
+    min-width: 80px;
+  }
+  
+  .stepTitle {
+    font-size: 1.25rem;
+  }
+  
+  .stepDescription {
+    font-size: 1rem;
+  }
+  
+  .stepConnector {
+    left: 40px;
+    height: var(--spacing-md);
+  }
+}

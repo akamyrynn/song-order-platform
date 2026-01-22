@@ -1,0 +1,157 @@
+/* Hero Section Styles - Requirements 12.1, 12.2, 12.3, 12.5, 12.7 */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-darker);
+}
+
+/* Atmospheric background mesh - Requirement 12.5 */
+.backgroundMesh {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-mesh);
+  opacity: 0.6;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+/* Distinctive typography - Requirement 12.1 */
+.title {
+  color: var(--color-light);
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.titleAccent {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.titleAccent::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-secondary);
+  border-radius: 2px;
+  animation: shimmer 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+.subtitle {
+  color: rgba(248, 249, 250, 0.8);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-lg);
+  font-weight: 300;
+}
+
+/* CTA Button with micro-interactions - Requirements 12.3, 12.7 */
+.ctaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 1.25rem 3rem;
+  background: var(--gradient-primary);
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.ctaButton:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+}
+
+.ctaButton:hover::before {
+  opacity: 1;
+}
+
+.ctaButton:hover .ctaIcon {
+  transform: translateX(5px);
+}
+
+.ctaButton:active {
+  transform: translateY(-2px) scale(1);
+}
+
+.ctaText {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaIcon {
+  font-size: 1.5rem;
+  transition: transform var(--transition-normal);
+  position: relative;
+  z-index: 1;
+}
+
+.ctaHint {
+  color: rgba(248, 249, 250, 0.6);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+  }
+  
+  .heroContent {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}

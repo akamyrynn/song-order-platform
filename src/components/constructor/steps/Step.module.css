@@ -1,0 +1,250 @@
+/* Step Component Styles */
+
+.stepContainer {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.stepTitle {
+  color: #F8F9FA;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.stepDescription {
+  color: rgba(248, 249, 250, 0.7);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Form Elements */
+.formGroup {
+  margin-bottom: 2rem;
+}
+
+.label {
+  display: block;
+  color: #F8F9FA;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.required {
+  color: #FFA07A;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #F8F9FA;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: rgba(102, 126, 234, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(248, 249, 250, 0.4);
+}
+
+.inputError {
+  border-color: rgba(245, 87, 108, 0.5);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.helperText {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: rgba(248, 249, 250, 0.5);
+}
+
+.errorText {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #f5576c;
+}
+
+/* Chip Selection */
+.chipGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.chip {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: rgba(248, 249, 250, 0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.chipActive {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.chipActive:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Buttons */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  justify-content: space-between;
+}
+
+.buttonPrimary,
+.buttonSecondary {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  flex: 1;
+  font-family: inherit;
+}
+
+.buttonPrimary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.buttonPrimary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.buttonPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.buttonSecondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F8F9FA;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.buttonSecondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.buttonSecondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Info Box */
+.infoBox {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.infoTitle {
+  color: #F8F9FA;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.infoList {
+  color: rgba(248, 249, 250, 0.8);
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.infoList li {
+  margin-bottom: 0.5rem;
+}
+
+/* Error Box */
+.errorBox {
+  background: rgba(245, 87, 108, 0.1);
+  border: 1px solid rgba(245, 87, 108, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: #f5576c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stepTitle {
+    font-size: 1.5rem;
+  }
+  
+  .stepDescription {
+    font-size: 1rem;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+  }
+  
+  .buttonPrimary,
+  .buttonSecondary {
+    width: 100%;
+  }
+  
+  .chipGrid {
+    gap: 0.5rem;
+  }
+  
+  .chip {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

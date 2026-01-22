@@ -1,0 +1,94 @@
+/* Progress Indicator Styles */
+
+.progressContainer {
+  margin-bottom: 3rem;
+}
+
+.progressBar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: rgba(248, 249, 250, 0.5);
+  transition: all 0.3s ease;
+}
+
+.stepLabel {
+  font-size: 0.85rem;
+  color: rgba(248, 249, 250, 0.5);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.step.active .stepNumber {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+}
+
+.step.active .stepLabel {
+  color: #F8F9FA;
+  font-weight: 600;
+}
+
+.step.completed .stepNumber {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.step.completed .stepLabel {
+  color: rgba(248, 249, 250, 0.7);
+}
+
+@media (max-width: 768px) {
+  .steps {
+    gap: 0.25rem;
+  }
+  
+  .stepNumber {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  
+  .stepLabel {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,214 @@
+/* Order Detail Styles */
+
+.orderDetailPage {
+  min-height: 100vh;
+  background: var(--color-darker);
+  padding: var(--spacing-lg);
+}
+
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--color-light);
+  font-size: 1.5rem;
+}
+
+.header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.backButton {
+  display: inline-block;
+  color: rgba(248, 249, 250, 0.7);
+  text-decoration: none;
+  margin-bottom: var(--spacing-sm);
+  transition: color var(--transition-normal);
+}
+
+.backButton:hover {
+  color: var(--color-light);
+}
+
+.title {
+  color: var(--color-light);
+  font-size: 2.5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Section */
+.section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: var(--spacing-md);
+}
+
+.sectionTitle {
+  color: var(--color-light);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.subsectionTitle {
+  color: var(--color-light);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Status Control */
+.statusControl {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.statusSelect {
+  flex: 1;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--color-light);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.statusSelect:focus {
+  outline: none;
+  border-color: rgba(102, 126, 234, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.updateButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.updateButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.updateButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.infoLabel {
+  color: rgba(248, 249, 250, 0.6);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.infoValue {
+  color: var(--color-light);
+  font-size: 1.1rem;
+}
+
+/* Special Requests */
+.specialRequests {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.requestsText {
+  color: rgba(248, 249, 250, 0.8);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* File Info */
+.fileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.fileName {
+  color: var(--color-light);
+  font-family: monospace;
+}
+
+.downloadButton {
+  padding: 0.5rem 1rem;
+  background: rgba(72, 187, 120, 0.2);
+  color: #48bb78;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.downloadButton:hover {
+  background: rgba(72, 187, 120, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .orderDetailPage {
+    padding: var(--spacing-md);
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .statusControl {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .statusSelect {
+    max-width: none;
+  }
+  
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .fileInfo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

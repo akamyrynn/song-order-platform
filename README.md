@@ -1,107 +1,36 @@
-# Custom Song Ordering Platform
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Платформа для заказа персонализированных песен с интеграцией Telegram и системой оплаты.
+## Getting Started
 
-## 🚀 Возможности
+First, run the development server:
 
-- **Конструктор песен** - многошаговая форма для создания заказа
-- **Админ-панель** - управление заказами и статусами
-- **Интеграция с Supabase** - база данных и аутентификация
-- **Telegram бот** (в разработке) - уведомления и общение с клиентами
-- **Система оплаты** (в разработке) - прием платежей
-
-## 🛠 Технологии
-
-- **Next.js 14** - React фреймворк
-- **TypeScript** - типизация
-- **Supabase** - база данных и backend
-- **Tailwind CSS** - стилизация (через CSS modules)
-- **Zod** - валидация данных
-
-## 📦 Установка
-
-1. Клонируй репозиторий:
-```bash
-git clone <your-repo-url>
-cd song-order-platform
-```
-
-2. Установи зависимости:
-```bash
-npm install
-```
-
-3. Настрой переменные окружения:
-```bash
-cp .env.example .env
-```
-
-Заполни `.env` своими ключами от Supabase:
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY`
-
-4. Создай таблицы в Supabase:
-- Открой SQL Editor в Supabase Dashboard
-- Выполни содержимое файла `supabase-migration.sql`
-
-5. Запусти dev сервер:
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Открой [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🌐 Деплой на Vercel
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-1. Импортируй проект в Vercel
-2. Добавь переменные окружения из `.env.example`
-3. Деплой!
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=<your-repo-url>)
+## Learn More
 
-## 📁 Структура проекта
+To learn more about Next.js, take a look at the following resources:
 
-```
-├── src/
-│   ├── app/              # Next.js App Router
-│   │   ├── api/          # API endpoints
-│   │   ├── admin/        # Админ-панель
-│   │   ├── constructor/  # Конструктор заказов
-│   │   └── order-success/# Страница успеха
-│   ├── components/       # React компоненты
-│   ├── lib/             # Утилиты и конфиги
-│   └── types/           # TypeScript типы
-├── supabase-migration.sql # SQL миграция
-└── docs/                # Документация
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 🔑 API Endpoints
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- `POST /api/orders` - Создать заказ
-- `GET /api/orders` - Список заказов (с фильтрацией)
-- `GET /api/orders/:id` - Получить заказ
-- `PATCH /api/orders/:id` - Обновить заказ
-- `GET /api/test-db` - Проверка подключения к БД
+## Deploy on Vercel
 
-## 📝 Статусы заказов
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- `new` - Новый заказ
-- `in_progress` - В работе
-- `ready` - Готов
-- `paid` - Оплачен
-- `completed` - Завершен
-
-## 🧪 Тестирование
-
-```bash
-npm run test
-```
-
-## 📄 Лицензия
-
-MIT
-
-## 👨‍💻 Автор
-
-AkamyRynn
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

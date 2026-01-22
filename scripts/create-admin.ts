@@ -3,10 +3,18 @@
  * Run with: npx ts-node scripts/create-admin.ts
  */
 
-import { PrismaClient } from '@prisma/client'
+import { createClient } from '@supabase/supabase-js'
 import * as bcrypt from 'bcryptjs'
 
-const prisma = new PrismaClient()
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+
+const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+  auth: {
+    autoRefreshToken: false,
+    persistSession: false
+  }
+})
 
 async function createAdmin() {
   try {
@@ -15,9 +23,11 @@ async function createAdmin() {
     const name = 'Test Admin'
     
     // Check if admin already exists
-    const existingAdmin = await prisma.adminUser.findUnique({
-      where: { email }
-    })
+    const { data: existingAdmin } = await supabase
+      .from('admin_users')
+      .select('*')
+      .eq('email', email)
+      .single()
     
     if (existingAdmin) {
       console.log('❌ Admin user already exists with email:', email)
@@ -28,14 +38,20 @@ async function createAdmin() {
     const passwordHash = await bcrypt.hash(password, 10)
     
     // Create admin user
-    const admin = await prisma.adminUser.create({
-      data: {
+    const { data: admin, error } = await supabase
+      .from('admin_users')
+      .insert({
         email,
-        passwordHash,
+        password_hash: passwordHash,
         name,
         role: 'admin'
-      }
-    })
+      })
+      .select()
+      .single()
+    
+    if (error) {
+      throw error
+    }
     
     console.log('✅ Admin user created successfully!')
     console.log('📧 Email:', email)
@@ -45,8 +61,6 @@ async function createAdmin() {
     
   } catch (error) {
     console.error('❌ Error creating admin:', error)
-  } finally {
-    await prisma.$disconnect()
   }
 }
 

@@ -13,24 +13,7 @@ import Step2MusicStyle from './steps/Step2MusicStyle'
 import Step3Details from './steps/Step3Details'
 import Step4Contact from './steps/Step4Contact'
 import ProgressIndicator from './ProgressIndicator'
-
-export interface FormData {
-  // Step 1: Basic Info
-  recipientName: string
-  relationship: string
-  occasion: string
-  
-  // Step 2: Music Style
-  musicalStyle: string[]
-  mood: string
-  tempo: string
-  
-  // Step 3: Details
-  specialRequests: string
-  
-  // Step 4: Contact
-  phoneNumber: string
-}
+import type { FormData } from './types'
 
 const initialFormData: FormData = {
   recipientName: '',

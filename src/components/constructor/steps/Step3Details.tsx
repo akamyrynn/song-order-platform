@@ -5,7 +5,7 @@
 
 'use client'
 
-import { FormData } from '../ConstructorForm'
+import type { FormData } from '../types'
 import styles from './Step.module.css'
 
 interface Step3Props {

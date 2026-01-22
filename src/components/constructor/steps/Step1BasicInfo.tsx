@@ -6,7 +6,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FormData } from '../ConstructorForm'
+import type { FormData } from '../types'
 import styles from './Step.module.css'
 
 interface Step1Props {

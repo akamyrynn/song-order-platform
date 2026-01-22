@@ -15,29 +15,17 @@ npm install
 3. Скопируйте содержимое файла `supabase-migration.sql`
 4. Вставьте в редактор и нажмите **Run**
 
-### 2.2. Получите пароль базы данных
+### 2.2. Проверьте переменные окружения
 
-1. В Supabase Dashboard: **Settings** → **Database**
-2. Найдите **Connection string** → **URI**
-3. Скопируйте пароль из строки (между `postgres:` и `@`)
-
-### 2.3. Обновите .env
-
-Откройте файл `.env` и замените `[YOUR-PASSWORD]` на ваш пароль:
+Файл `.env` уже настроен с вашими ключами Supabase:
 
 ```env
-DATABASE_URL="postgresql://postgres.ejnbpcqmfyorppjkajpp:ВАШ_ПАРОЛЬ@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
-DIRECT_URL="postgresql://postgres.ejnbpcqmfyorppjkajpp:ВАШ_ПАРОЛЬ@aws-0-eu-central-1.pooler.supabase.com:5432/postgres"
+NEXT_PUBLIC_SUPABASE_URL="https://ejnbpcqmfyorppjkajpp.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="..."
+SUPABASE_SERVICE_ROLE_KEY="..."
 ```
 
-## 3. Настройка Prisma
-
-```bash
-npx prisma generate
-npx prisma db push
-```
-
-## 4. Создание тестового админа
+## 3. Создание тестового админа
 
 ```bash
 npx ts-node scripts/create-admin.ts
@@ -47,7 +35,7 @@ npx ts-node scripts/create-admin.ts
 - Email: **admin@test.com**
 - Password: **admin123**
 
-## 5. Запуск
+## 4. Запуск
 
 ```bash
 npm run dev
@@ -106,7 +94,7 @@ npm run dev
 ## Возможные проблемы
 
 ### Ошибка подключения к базе данных
-- Проверьте правильность пароля в `.env`
+- Проверьте правильность ключей Supabase в `.env`
 - Убедитесь, что Supabase проект активен
 
 ### Конструктор пустой
@@ -121,15 +109,9 @@ npm run dev
 ## Полезные команды
 
 ```bash
-# Просмотр базы данных
-npx prisma studio
-
 # Проверка типов
 npx tsc --noEmit
 
 # Запуск тестов
 npm test
-
-# Сброс базы данных (ОСТОРОЖНО!)
-npx prisma migrate reset
 ```

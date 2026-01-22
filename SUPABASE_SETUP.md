@@ -21,29 +21,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 SUPABASE_SERVICE_ROLE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
-**ВАЖНО:** Вам нужно добавить пароль от базы данных в `DATABASE_URL`:
-
-```env
-DATABASE_URL="postgresql://postgres.ejnbpcqmfyorppjkajpp:[ВАШ_ПАРОЛЬ]@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
-DIRECT_URL="postgresql://postgres.ejnbpcqmfyorppjkajpp:[ВАШ_ПАРОЛЬ]@aws-0-eu-central-1.pooler.supabase.com:5432/postgres"
-```
-
-Замените `[ВАШ_ПАРОЛЬ]` на пароль от вашей базы данных Supabase.
-
-Пароль можно найти:
-1. Settings → Database
-2. Connection string → URI (скопируйте пароль из строки подключения)
-
-## Шаг 3: Генерация Prisma Client
-
-После настройки DATABASE_URL выполните:
-
-```bash
-npx prisma generate
-npx prisma db push
-```
-
-## Шаг 4: Создание тестового админа
+## Шаг 3: Создание тестового админа
 
 Выполните скрипт для создания тестового администратора:
 
@@ -55,7 +33,7 @@ npx ts-node scripts/create-admin.ts
 - **Email:** admin@test.com
 - **Password:** admin123
 
-## Шаг 5: Проверка
+## Шаг 4: Проверка
 
 1. Запустите сервер разработки:
 ```bash
@@ -106,7 +84,7 @@ npm run dev
 ### Ошибка подключения к базе данных
 
 Проверьте:
-1. Правильность пароля в DATABASE_URL
+1. Что переменные окружения правильно настроены
 2. Что проект Supabase активен
 3. Что IP-адрес не заблокирован (Supabase → Settings → Database → Connection pooling)
 
@@ -115,13 +93,3 @@ npm run dev
 1. Убедитесь, что SQL-запрос выполнен успешно в SQL Editor
 2. Проверьте логи в Supabase Dashboard
 3. Попробуйте выполнить запрос по частям (сначала CREATE TABLE, потом индексы)
-
-### Prisma не видит таблицы
-
-Выполните:
-```bash
-npx prisma db pull
-npx prisma generate
-```
-
-Это синхронизирует схему Prisma с базой данных.

@@ -6,8 +6,6 @@
 import ConstructorForm from '@/components/constructor/ConstructorForm'
 import styles from './constructor.module.css'
 
-export const dynamic = 'force-dynamic'
-
 export default function ConstructorPage() {
   return (
     <main className={styles.constructorPage}>

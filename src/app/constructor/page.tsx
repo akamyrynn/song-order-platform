@@ -5,8 +5,9 @@
 
 import ConstructorForm from '@/components/constructor/ConstructorForm'
 import styles from './constructor.module.css'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Конструктор песни | Custom Song Platform',
   description: 'Создайте персонализированную песню, заполнив параметры',
 }

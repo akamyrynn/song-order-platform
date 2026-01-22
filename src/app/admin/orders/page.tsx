@@ -4,8 +4,9 @@
  */
 
 import OrdersList from '@/components/admin/OrdersList'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Все заказы | Админ-панель',
   description: 'Список всех заказов с фильтрацией',
 }

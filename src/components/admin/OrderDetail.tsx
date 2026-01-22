@@ -5,7 +5,7 @@
 
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import styles from './OrderDetail.module.css'
@@ -43,11 +43,7 @@ export default function OrderDetail({ orderId }: { orderId: string }) {
   const [updating, setUpdating] = useState(false)
   const [selectedStatus, setSelectedStatus] = useState<string>('')
 
-  useEffect(() => {
-    fetchOrder()
-  }, [orderId])
-
-  const fetchOrder = async () => {
+  const fetchOrder = useCallback(async () => {
     try {
       const response = await fetch(`/api/orders/${orderId}`)
       if (response.ok) {
@@ -62,7 +58,11 @@ export default function OrderDetail({ orderId }: { orderId: string }) {
     } finally {
       setLoading(false)
     }
-  }
+  }, [orderId])
+
+  useEffect(() => {
+    fetchOrder()
+  }, [fetchOrder])
 
   const handleStatusUpdate = async () => {
     if (!order || selectedStatus === order.status) return

@@ -5,7 +5,7 @@
 
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 import styles from './OrdersList.module.css'
 
@@ -51,7 +51,7 @@ export default function OrdersList() {
     }
   }
 
-  const applyFilters = () => {
+  const applyFilters = useCallback(() => {
     let filtered = [...orders]
 
     // Status filter
@@ -70,7 +70,12 @@ export default function OrdersList() {
     }
 
     setFilteredOrders(filtered)
-  }
+  }, [orders, statusFilter, searchQuery])
+
+  useEffect(() => {
+    applyFilters()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [applyFilters])
 
   const getStatusLabel = (status: string) => {
     const labels: Record<string, string> = {

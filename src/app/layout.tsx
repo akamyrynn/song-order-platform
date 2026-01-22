@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
+const neueMontreal = localFont({
+  src: '../../public/fonts/NeueMontreal-Regular.otf',
   variable: '--font-display',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-body',
   display: 'swap',
 })
 
@@ -25,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="ru" className={neueMontreal.variable}>
       <body>{children}</body>
     </html>
   )

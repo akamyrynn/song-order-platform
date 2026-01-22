@@ -18,11 +18,13 @@ import { OrderStatus } from '@/types';
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+    
     // Validate UUID format
-    const validationResult = uuidSchema.safeParse(params.id);
+    const validationResult = uuidSchema.safeParse(id);
     if (!validationResult.success) {
       return NextResponse.json(
         { error: 'Invalid order ID format' },
@@ -38,7 +40,7 @@ export async function GET(
         messages (*),
         payments (*)
       `)
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
     
     if (error || !order) {
@@ -107,11 +109,13 @@ export async function GET(
  */
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+    
     // Validate UUID format
-    const idValidation = uuidSchema.safeParse(params.id);
+    const idValidation = uuidSchema.safeParse(id);
     if (!idValidation.success) {
       return NextResponse.json(
         { error: 'Invalid order ID format' },
@@ -139,7 +143,7 @@ export async function PATCH(
     const { data: existingOrder, error: fetchError } = await supabaseAdmin
       .from('orders')
       .select('status')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
     
     if (fetchError || !existingOrder) {
@@ -188,7 +192,7 @@ export async function PATCH(
     const { data: updatedOrder, error: updateError } = await supabaseAdmin
       .from('orders')
       .update(updateData)
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single();
     

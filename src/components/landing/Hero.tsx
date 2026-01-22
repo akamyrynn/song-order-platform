@@ -33,7 +33,7 @@ export default function Hero() {
         
         {/* CTA Button with animation - Requirements 12.3, 12.7 */}
         <div className={`${styles.ctaContainer} stagger-item`}>
-          <Link href="/constructor" className={styles.ctaButton}>
+          <Link href="/create" className={styles.ctaButton}>
             <span className={styles.ctaText}>Создать песню</span>
             <span className={styles.ctaIcon} aria-hidden="true">→</span>
           </Link>

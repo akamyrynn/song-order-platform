@@ -25,7 +25,7 @@ http://localhost:3002/api/test-db
 
 ## Шаг 3: Проверить конструктор
 
-1. Открой http://localhost:3002/constructor
+1. Открой http://localhost:3002/create
 2. Заполни форму
 3. Нажми "Создать заказ"
 

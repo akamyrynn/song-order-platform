@@ -3,6 +3,8 @@
  * Validates: Requirements 2.1, 2.2, 2.3, 3.2, 3.3, 3.4, 4.1
  */
 
+'use client'
+
 import ConstructorForm from '@/components/constructor/ConstructorForm'
 import styles from './constructor.module.css'
 

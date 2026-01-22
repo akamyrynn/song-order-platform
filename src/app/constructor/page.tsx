@@ -5,14 +5,8 @@
 
 import ConstructorForm from '@/components/constructor/ConstructorForm'
 import styles from './constructor.module.css'
-import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
-
-export const metadata: Metadata = {
-  title: 'Конструктор песни | Custom Song Platform',
-  description: 'Создайте персонализированную песню, заполнив параметры',
-}
 
 export default function ConstructorPage() {
   return (
